@@ -82,7 +82,7 @@ public class fenci {
  
 	}
 	
-	public static String weiboFenci(String path){
+	public static synchronized String weiboFenci(String path){
 		String argu = "";
 		//String system_charset = "GBK";//GBK----0
 		String system_charset = "UTF-8";

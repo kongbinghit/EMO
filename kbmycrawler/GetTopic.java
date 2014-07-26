@@ -22,7 +22,7 @@ public class GetTopic {
 			throws ClientProtocolException, IOException {
 		HttpClient httpclient = new DefaultHttpClient();
 		List<String[]> list = new ArrayList<String[]>();
-		for (int page = 0; page < number; page++) {
+		for (int page = 1; page < number; page++) {
 			//creat get
 			String url = "http://huati.weibo.com/aj_topiclist/big?ctg1=99&ctg2=0&prov=0&sort="
 					+ sort

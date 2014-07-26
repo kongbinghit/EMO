@@ -83,7 +83,7 @@ public class MyCrawler {
 		String today=getMyTime();
 		for(int i=0;i<topiclist.size();i++){
 			System.out.println(topiclist.get(i)[0]+"---->>>"+topiclist.get(i)[1]);
-			Mythread mythread=new Mythread("./mycraw",topiclist.get(i)[0],"./mycraw","./mycraw","./mycraw",topiclist.get(i),"2",today);
+			Mythread mythread=new Mythread("./mycraw",topiclist.get(i)[0],"./mycraw","./mycraw","./mycraw",topiclist.get(i),"50",today);
 			mythread.start();;
 		}
 	}
