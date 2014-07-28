@@ -84,7 +84,7 @@ public class MyCrawler {
 		for(int i=0;i<topiclist.size();i++){
 			System.out.println(topiclist.get(i)[0]+"---->>>"+topiclist.get(i)[1]);
 			Mythread mythread=new Mythread("./mycraw",topiclist.get(i)[0],"./mycraw","./mycraw","./mycraw",topiclist.get(i),"50",today);
-			mythread.start();;
+			mythread.start();
 		}
 	}
 	public static void main(String []args){
@@ -146,7 +146,7 @@ class Mythread  extends Thread{
 		emoClassifyUnity emo=new emoClassifyUnity();
 		List<String[]>list2=emo.emoClassify("./mycraw/"+dir+"/"+searchwords+".xml");
 		//save the  topic
-		/*
+		
 		JdbcUtils db=new JdbcUtils();
 		db.getConnection();
 		String sql="insert into topic(topic ,topicdescription,pdate) values (?,?,?)";
@@ -178,7 +178,9 @@ class Mythread  extends Thread{
 		db.releasecon();
 		//
 		savetomysql(gettopicid(searchwords ),list2);
-		*/
+		//
+		 String info=topiclist[0]+"：结束下载，分词，结果保存在数据库内";
+			logwrite.write("./timerlog.txt", info);
 	}
 	
 	public boolean  savetomysql(int topicid,List<String[]> list){
@@ -241,7 +243,5 @@ class MyTask extends TimerTask{
 		MyCrawler myCrawler=new MyCrawler();//开始爬取
 		myCrawler.begin(null);
 		//
-		 info="结束下载，结果保存在数据库内，一轮查询结果完成！";
-		logwrite.write("./timerlog.txt", info);
 	}
 }
